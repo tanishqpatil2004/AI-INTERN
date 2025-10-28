@@ -1,6 +1,6 @@
 # NexGen RoutePrime: Smart Route Planner ✨
 
-**Author:** [Your Name]
+**Author:** Tanishq Patil
 **Case Study:** OFI AI Internship - Logistics Innovation Challenge
 **Option Chosen:** 2 - Smart Route Planner
 
@@ -25,7 +25,7 @@ This application directly addresses NexGen's challenges of **Operational Ineffic
 
 ## 2. Exploratory Data Analysis (EDA) 📊
 
-Prior to building the application, an **Exploratory Data Analysis (EDA)** was conducted using the `Main_Work.ipynb` Jupyter Notebook to gain insights from the provided datasets. This crucial step involved:
+Prior to building the application, an **Exploratory Data Analysis (EDA)** was conducted using the `EDA.ipynb` Jupyter Notebook to gain insights from the provided datasets. This crucial step involved:
 
 * **Loading & Merging:** Reading all 7 CSV files into pandas DataFrames and integrating `orders` with `delivery_performance` data.
 * **Data Cleaning:** Handling missing values, specifically:
@@ -58,8 +58,8 @@ This project meticulously addresses all technical requirements specified in the 
 
 * **Python and Streamlit:**
     * ✅ **Python:** All data loading, EDA (in `.ipynb`), analysis, optimization, and application logic (`.py`) are written exclusively in Python.
-    * ✅ **Streamlit:** An interactive web application (`your_app.py`) is built using the Streamlit framework.
-    * ✅ **Local Execution:** The application runs locally using `streamlit run your_app.py`.
+    * ✅ **Streamlit:** An interactive web application (`app.py`) is built using the Streamlit framework.
+    * ✅ **Local Execution:** The application runs locally using `streamlit run app.py`.
 
 * **Data Analysis:**
     * ✅ **Multiple Datasets:** Both the EDA notebook and the Streamlit app load and integrate data from the relevant CSV files.
@@ -68,7 +68,7 @@ This project meticulously addresses all technical requirements specified in the 
     * ✅ **Derived Metrics:** EDA creates `On-Time Status`, `Delivery Overrun`, `Total Order Cost`. The App creates `Demand` (simulated), `Capacity` (mapped), and the crucial `cost`, `time`, `co2` **matrices** needed for optimization.
 
 * **Visualization:**
-    * ✅ **4+ Chart Types:** The EDA notebook (`Main_Work.ipynb`) generates **Pie, Bar, Histogram, and Countplot** using Matplotlib/Seaborn.
+    * ✅ **4+ Chart Types:** The EDA notebook (`EDA.ipynb`) generates **Pie, Bar, Histogram, and Countplot** using Matplotlib/Seaborn.
     * ✅ **Interactive Visualization:** The Streamlit application features an interactive **Folium map** for route visualization (pan, zoom, markers).
     * ✅ **Appropriate Charts:** The Folium map is perfectly suited for displaying routes. Charts in the EDA notebook were chosen appropriately (Pie for share, Bar for category comparison, Histogram for distribution, Countplot for frequency).
 
@@ -95,7 +95,7 @@ This project meticulously addresses all technical requirements specified in the 
 * Python 3.8+ installed.
 * Access to a terminal or command prompt.
 * All 7 dataset CSV files provided in the case study brief.
-* (Optional) Jupyter Notebook environment to run the EDA.
+* Jupyter Notebook environment to run the EDA.
 
 ### 4.2. Setup
 
@@ -108,32 +108,17 @@ This project meticulously addresses all technical requirements specified in the 
     │   ├── routes_distance.csv
     │   ├── vehicle_fleet.csv
     │   ├── cost_breakdown.csv
-    │   ├── warehouse_inventory.csv  (Optional, not used by final app)
-    │   └── customer_feedback.csv    (Optional, not used by final app)
-    ├── your_app.py                # The Streamlit application
-    ├── Main_Work.ipynb            # Your Jupyter Notebook for EDA
+    │   ├── warehouse_inventory.csv  
+    │   └── customer_feedback.csv    
+    ├── app.py                # The Streamlit application
+    ├── EDA.ipynb            # Your Jupyter Notebook for EDA
     └── requirements.txt           # Python libraries needed
     ```
 2.  **CSV Files:** Place the required CSV files inside the `data/` subfolder.
 
 ### 4.3. Installation
 
-1.  **Create `requirements.txt`:** Ensure this file exists in `your_project_folder/` with the content:
-    ```text
-    # For Streamlit App
-    streamlit
-    pandas
-    numpy
-    folium
-    streamlit-folium
-    ortools
-
-    # For EDA Notebook
-    matplotlib
-    seaborn
-    notebook
-    ```
-2.  **Install Libraries:** Open your terminal, navigate (`cd`) to `your_project_folder/`, and run:
+1.  **Install Libraries:** Open your terminal, navigate (`cd`) to `your_project_folder/`, and run:
     ```bash
     pip install -r requirements.txt
     ```
@@ -143,7 +128,7 @@ This project meticulously addresses all technical requirements specified in the 
 1.  **Navigate:** Ensure your terminal is in `your_project_folder/`.
 2.  **Run:** Execute:
     ```bash
-    streamlit run your_app.py
+    streamlit run app.py
     ```
 
 Your browser should open the **NexGen RoutePrime** application.
@@ -161,4 +146,5 @@ Your browser should open the **NexGen RoutePrime** application.
 ### Limitation: Dataset Size & Simulation Correlation
 
 * Due to the **small dataset** size and the **simulated nature** of cost factors (even with adjustments), the optimizer might still produce **similar routes** for different goals (Cost, Time, CO2). The underlying "best path" considering capacity and stops might remain largely the same across the simulated metrics.
+
 * With a larger, real-world dataset featuring genuine, complex trade-offs (e.g., toll roads vs. local roads, time-varying traffic, specific vehicle efficiencies), the distinct optimization goals are expected to yield more significantly different route recommendations and KPI outcomes.
